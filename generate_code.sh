@@ -1,0 +1,1 @@
+protoc -I greet/ --go_out=greet/greetpb greet/greetpb/greet.proto
