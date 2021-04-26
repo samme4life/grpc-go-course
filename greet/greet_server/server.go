@@ -1,6 +1,7 @@
 package main
 
 import (
+	"context"
 	"fmt"
 	"github.com/samme4life/grpc-go-course/greet/greetpb"
 	"log"
@@ -13,8 +14,19 @@ type server struct {
 	greetpb.UnimplementedGreetServiceServer
 }
 
+func (*server) Greet(ctx context.Context, req *greetpb.GreetRequest) (*greetpb.GreetResponse, error) {
+	fmt.Printf("Greet function was invoked with %v\n", req)
+	firstName := req.GetGreeting().GetFirstName()
+	result := "Hello " + firstName
+
+	res := &greetpb.GreetResponse{
+		Result: result,
+	}
+	return res, nil
+}
+
 func main() {
-	fmt.Println("Hello World")
+	fmt.Println("Server Started!")
 
 	lis, err := net.Listen("tcp", "0.0.0.0:50051")
 	if err != nil {
