@@ -1,5 +1,5 @@
 #L16 Code Generation Test
-# This doesn't work anymore.
+# This doesn't work anymore. (protoc version: libprotoc 3.15.8)
 #refer https://grpc.io/docs/languages/go/quickstart/#regenerate-grpc-code for the up-to-date command
 protc greet/greetpb/greet.proto --go_out=plugins=grpc:.
 
