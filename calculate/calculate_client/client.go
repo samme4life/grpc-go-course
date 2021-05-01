@@ -18,7 +18,6 @@ func main() {
 
 	defer cc.Close()
 
-	//c := greetpb.NewGreetServiceClient(cc)
 	c := calculatepb.NewCalculateServiceClient(cc)
 
 	doUnary(c)
