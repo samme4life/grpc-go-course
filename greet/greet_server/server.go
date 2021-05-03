@@ -14,7 +14,7 @@ type server struct {
 	greetpb.UnimplementedGreetServiceServer
 }
 
-func (*server) Greet(ctx context.Context, req *greetpb.GreetRequest) (*greetpb.GreetResponse, error) {
+func (server) Greet(ctx context.Context, req *greetpb.GreetRequest) (*greetpb.GreetResponse, error) {
 	fmt.Printf("Greet function was invoked with %v\n", req)
 	firstName := req.GetGreeting().GetFirstName()
 	result := "Hello " + firstName
@@ -34,7 +34,7 @@ func main() {
 	}
 
 	s := grpc.NewServer()
-	greetpb.RegisterGreetServiceServer(s, &server{})
+	greetpb.RegisterGreetServiceServer(s, server{})
 
 	if err := s.Serve(lis); err != nil {
 		log.Fatalf("failed to serve: %v", err)
