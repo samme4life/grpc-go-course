@@ -4,15 +4,9 @@ import (
 	"google.golang.org/grpc"
 	"log"
 	"net"
-
-	pb "github.com/samme4life/grpc-go-course/greet/proto"
 )
 
 var addr string = "0.0.0.0:50051"
-
-type Server struct {
-	pb.GreetServiceServer
-}
 
 func main() {
 	lis, err := net.Listen("tcp", addr)

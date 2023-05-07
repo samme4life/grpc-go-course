@@ -29,7 +29,7 @@ config:
 .PHONY: mod
 mod: config ## Initialise the go module
 	rm -rf go.sum go.mod vendor
-	go mod init github.com/samme4life/grpc-go-course
+	go mod init
 	go mod tidy
 
 install: ## installs dependencies
@@ -47,7 +47,8 @@ blog: $@ ## Generate Pbs and build for blog
 
 $(project):
 	@${CHECK_DIR_CMD}
-	protoc -I$@/${PROTO_DIR} --go_opt=module=${PACKAGE} --go_out=. --go-grpc_opt=module=${PACKAGE} --go-grpc_out=. $@/${PROTO_DIR}/*.proto
+	#protoc -I$@/${PROTO_DIR} --go_opt=module=${PACKAGE} --go_out=. --go-grpc_opt=module=${PACKAGE} --go-grpc_out=. $@/${PROTO_DIR}/*.proto
+	protoc --go_out=paths=source_relative:. --go-grpc_out=paths=source_relative:. $@/${PROTO_DIR}/*.proto
 	go build -o ${BIN_DIR}/$@/${SERVER_BIN} ./$@/${SERVER_DIR}
 	go build -o ${BIN_DIR}/$@/${CLIENT_BIN} ./$@/${CLIENT_DIR}
 
