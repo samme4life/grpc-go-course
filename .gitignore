@@ -1,0 +1,16 @@
+**.idea
+**.vscode
+**.bin
+cloudformation.yml
+**coverage.out
+**vendor
+**.DS_Store
+**.aws-sam
+**SAMVars
+**SAMvars
+**parameters.ini
+**golangci.out
+**.build
+
+# Sonar Outputs
+.scannerwork
