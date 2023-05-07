@@ -3,6 +3,7 @@ package main
 import (
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
+	pb "grpc-go-course/greet/proto"
 	"log"
 )
 
@@ -20,5 +21,8 @@ func main() {
 			log.Fatalf("Error at closing the connection: %v\n", err)
 		}
 	}(conn)
-	//...
+
+	c := pb.NewGreetServiceClient(conn)
+
+	doGreet(c)
 }
