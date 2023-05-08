@@ -24,5 +24,6 @@ func main() {
 
 	c := pb.NewCalculatorServiceClient(conn)
 
-	doCalculate(c)
+	//doCalculate(c)
+	doSqrt(c, -9)
 }
