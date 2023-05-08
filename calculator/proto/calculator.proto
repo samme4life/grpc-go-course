@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package calculator;
+
+option go_package = "github.com/samme4life/grpc-go-course/calculator/proto";
+
+message CalculatorRequest {
+  int32 int_1 = 1;
+  int32 int_2 = 2;
+}
+
+message CalculatorResponse {
+  string result = 1;
+}
+
+service CalculatorService {
+  rpc Calculator(CalculatorRequest) returns (CalculatorResponse);
+}
