@@ -9,7 +9,7 @@ import (
 func doCalculate(c pb.CalculatorServiceClient) {
 	log.Println("doCalculate was invoked...")
 
-	res, err := c.Calculator(context.Background(), &pb.CalculatorRequest{
+	res, err := c.Sum(context.Background(), &pb.SumRequest{
 		Int_1: 45,
 		Int_2: -87,
 	})

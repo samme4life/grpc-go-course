@@ -4,8 +4,11 @@ package calculator;
 
 option go_package = "github.com/samme4life/grpc-go-course/calculator/proto";
 
-import "calculator/proto/sum.proto";
+message SumRequest {
+  int32 int_1 = 1;
+  int32 int_2 = 2;
+}
 
-service CalculatorService {
-  rpc Sum(SumRequest) returns (SumResponse);
+message SumResponse {
+  string result = 1;
 }
