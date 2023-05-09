@@ -18,7 +18,7 @@ type Server struct {
 }
 
 func main() {
-	client, err := mongo.NewClient(options.Client().ApplyURI("mongodb://root:root@mongo:27017/"))
+	client, err := mongo.NewClient(options.Client().ApplyURI("mongodb://root:root@localhost:27017/"))
 
 	if err != nil {
 		log.Fatalf("Failed to create Mongo Client: %v\n", err)
