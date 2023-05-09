@@ -3,6 +3,7 @@ module grpc-go-course
 go 1.18
 
 require (
+	go.mongodb.org/mongo-driver v1.11.6
 	google.golang.org/grpc v1.55.0
 	google.golang.org/protobuf v1.30.0
 )
