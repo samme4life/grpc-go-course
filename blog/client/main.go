@@ -26,6 +26,7 @@ func main() {
 
 	//doCalculate(c)
 	id := createBlog(c)
-	readBlog(c, id)               //valid id
-	readBlog(c, "aNonExistingId") // invalid id
+	readBlog(c, id) //valid id
+	//readBlog(c, "aNonExistingId") // invalid id
+	updateBlog(c, id)
 }
