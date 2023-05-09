@@ -25,5 +25,7 @@ func main() {
 	c := pb.NewBlogServiceClient(conn)
 
 	//doCalculate(c)
-	createBlog(c)
+	id := createBlog(c)
+	readBlog(c, id)               //valid id
+	readBlog(c, "aNonExistingId") // invalid id
 }
