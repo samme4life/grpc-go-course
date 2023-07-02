@@ -3,7 +3,7 @@ package main
 import (
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
-	pb "grpc-go-course/calculator/proto"
+	pb "grpc-go-course/blog/proto"
 	"log"
 )
 
@@ -22,8 +22,14 @@ func main() {
 		}
 	}(conn)
 
-	c := pb.NewCalculatorServiceClient(conn)
+	c := pb.NewBlogServiceClient(conn)
 
 	//doCalculate(c)
-	doSqrt(c, -9)
+	id := createBlog(c)
+	readBlog(c, id) //valid id
+	//readBlog(c, "aNonExistingId") // invalid id
+	updateBlog(c, id)
+	listBlogs(c)
+	deleteBlog(c, id)
+	listBlogs(c)
 }

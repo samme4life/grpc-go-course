@@ -5,7 +5,9 @@ package calculator;
 option go_package = "github.com/samme4life/grpc-go-course/calculator/proto";
 
 import "calculator/proto/sum.proto";
+import "calculator/proto/sqrt.proto";
 
 service CalculatorService {
   rpc Sum(SumRequest) returns (SumResponse);
+  rpc Sqrt(SqrtRequest) returns (SqrtResponse);
 }
